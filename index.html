@@ -600,7 +600,7 @@ footer{
           <div class="contact-icon">✉</div>
           <div>
             <div class="contact-item-title">Email</div>
-            <div class="contact-item-text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8fe6e1e9e0cffbe7eafbeee1e8faeef6eee8eae1ecf6a1ece0e2">[email&#160;protected]</a></div>
+            <div class="contact-item-text">info@thetanguayagency.com</div>
           </div>
         </div>
         <div class="contact-item">
@@ -680,7 +680,7 @@ footer{
         <div class="footer-col-title">Contact</div>
         <a>14724 Windermere St</a>
         <a>Southgate, MI 48195</a>
-        <a><span class="__cf_email__" data-cfemail="1c75727a735c687479687d727b697d657d7b79727f65327f7371">[email&#160;protected]</span></a>
+        <a>info@thetanguayagency.com</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -690,7 +690,7 @@ footer{
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ═══ NAV SCROLL EFFECT ═══
 const nav = document.getElementById('mainNav');
 const sections = document.querySelectorAll('section');
@@ -722,4 +722,14 @@ document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').fo
   observer.observe(el);
 });
 
-//
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
