@@ -15,6 +15,8 @@
   --cream:#faf8f4;--cream-dark:#f0ece4;
   --text:#1a1a2e;--text-light:#5a5a7a;--text-muted:#8a8aa0;
   --white:#ffffff;
+  /* Tandem brand */
+  --tandem-rose:#e8a87c;--tandem-purple:#7b68a8;--tandem-purple-light:#c9a0dc;
   --heading:'Cormorant Garamond',Georgia,serif;
   --body:'DM Sans',-apple-system,sans-serif;
   --ease:cubic-bezier(0.16,1,0.3,1);
@@ -33,7 +35,7 @@ img{max-width:100%;display:block}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 .reveal-scale{opacity:0;transform:scale(0.9);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease)}
 .reveal-scale.visible{opacity:1;transform:scale(1)}
-.stagger-1{transition-delay:0.1s}.stagger-2{transition-delay:0.2s}.stagger-3{transition-delay:0.3s}.stagger-4{transition-delay:0.4s}
+.stagger-1{transition-delay:0.1s}.stagger-2{transition-delay:0.2s}.stagger-3{transition-delay:0.3s}.stagger-4{transition-delay:0.4s}.stagger-5{transition-delay:0.5s}.stagger-6{transition-delay:0.6s}
 
 /* ═══ NAVIGATION ═══ */
 nav{
@@ -137,6 +139,20 @@ nav.scrolled{
 .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 .btn-navy{background:var(--navy);color:var(--white)}
 .btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(11,26,46,0.4)}
+.btn-tandem{
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));color:var(--white);
+}
+.btn-tandem:hover{
+  transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,104,168,0.35);
+  filter:brightness(1.1);
+}
+.btn-tandem-outline{
+  background:transparent;color:var(--tandem-purple);
+  border:1.5px solid var(--tandem-purple);
+}
+.btn-tandem-outline:hover{
+  background:rgba(123,104,168,0.08);transform:translateY(-2px);
+}
 .hero-scroll{
   position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;
   display:flex;flex-direction:column;align-items:center;gap:8px;
@@ -220,67 +236,200 @@ section{padding:100px 60px;position:relative}
 .careers-cta-card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,0.55);margin-bottom:28px}
 
 /* ═══ TANDEM ═══ */
-#tandem{background:var(--cream);overflow:hidden}
+#tandem{
+  background:var(--cream);overflow:hidden;
+  position:relative;
+}
+#tandem::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--tandem-rose),var(--tandem-purple),var(--tandem-purple-light));
+}
 .tandem-hero{
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
 }
 .tandem-badge{
   display:inline-flex;align-items:center;gap:6px;padding:6px 14px;
-  border-radius:20px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);
-  font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(232,168,124,0.12),rgba(123,104,168,0.12));
+  border:1px solid rgba(123,104,168,0.2);
+  font-size:11px;font-weight:700;color:var(--tandem-purple);letter-spacing:1.5px;text-transform:uppercase;
   margin-bottom:20px;
+}
+.tandem-section-label{
+  font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 .tandem-title{
   font-family:var(--heading);font-size:clamp(36px,4vw,56px);font-weight:700;
   color:var(--navy);line-height:1.1;margin-bottom:16px;
 }
 .tandem-title span{
-  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
 .tandem-features{display:flex;flex-direction:column;gap:16px;margin-top:32px}
 .tandem-feature{display:flex;gap:14px;align-items:start}
 .tandem-check{
-  width:24px;height:24px;border-radius:50%;background:rgba(201,168,76,0.12);
+  width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(232,168,124,0.15),rgba(123,104,168,0.15));
   display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
-  color:var(--gold);font-size:13px;font-weight:700;
+  color:var(--tandem-purple);font-size:13px;font-weight:700;
 }
 .tandem-feature-text{font-size:15px;line-height:1.5;color:var(--text-light)}
 .tandem-feature-text strong{color:var(--navy)}
 .tandem-mockup{
   position:relative;border-radius:16px;overflow:hidden;
-  background:var(--navy);padding:32px;
-  box-shadow:0 40px 80px rgba(11,26,46,0.2);
+  background:linear-gradient(135deg,#1a1228 0%,#0f0a1a 100%);padding:32px;
+  box-shadow:0 40px 80px rgba(123,104,168,0.18);
+}
+.tandem-mockup::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--tandem-rose),var(--tandem-purple),var(--tandem-purple-light));
 }
 .tandem-screen{
-  border-radius:10px;overflow:hidden;background:var(--navy-dark);
-  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;overflow:hidden;background:#0d0818;
+  border:1px solid rgba(201,160,220,0.1);
 }
 .tandem-screen-bar{
   display:flex;align-items:center;gap:6px;padding:10px 14px;
-  background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);
+  background:rgba(123,104,168,0.08);border-bottom:1px solid rgba(201,160,220,0.08);
 }
 .tandem-screen-dot{width:8px;height:8px;border-radius:50%}
-.tandem-screen-content{padding:20px;min-height:260px;font-family:monospace;font-size:12px;color:rgba(255,255,255,0.5);line-height:2}
-.tandem-screen-content .hl{color:var(--gold)}
+.tandem-screen-content{
+  padding:20px;min-height:280px;font-family:'Courier New',monospace;font-size:12px;
+  color:rgba(201,160,220,0.5);line-height:2;
+}
+.tandem-screen-content .hl{color:var(--tandem-rose)}
 .tandem-screen-content .gr{color:#4ade80}
+.tandem-screen-content .pp{color:var(--tandem-purple-light)}
+
+/* How It Works */
+.tandem-how{
+  margin-top:100px;text-align:center;
+}
+.tandem-how-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;
+}
+.tandem-how-card{
+  padding:36px 28px;border-radius:14px;background:var(--white);
+  border:1px solid rgba(0,0,0,0.04);transition:all 0.4s var(--ease);
+  text-align:left;position:relative;overflow:hidden;
+}
+.tandem-how-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--tandem-rose),var(--tandem-purple));
+  opacity:0;transition:opacity 0.3s;
+}
+.tandem-how-card:hover{
+  transform:translateY(-6px);box-shadow:0 20px 50px rgba(123,104,168,0.1);
+}
+.tandem-how-card:hover::before{opacity:1}
+.tandem-how-num{
+  font-family:var(--heading);font-size:48px;font-weight:700;line-height:1;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.tandem-how-title{
+  font-family:var(--heading);font-size:22px;font-weight:600;color:var(--navy);margin-bottom:10px;
+}
+.tandem-how-text{font-size:14px;line-height:1.65;color:var(--text-light)}
+
+/* Key Features Grid */
+.tandem-key-features{margin-top:100px}
+.tandem-features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;
+}
+.tk-card{
+  padding:32px;border-radius:14px;background:var(--white);
+  border:1px solid rgba(0,0,0,0.04);transition:all 0.4s var(--ease);
+}
+.tk-card:hover{
+  transform:translateY(-4px);box-shadow:0 16px 40px rgba(123,104,168,0.08);
+  border-color:rgba(123,104,168,0.12);
+}
+.tk-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(232,168,124,0.12),rgba(123,104,168,0.12));
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  font-size:22px;
+}
+.tk-title{
+  font-family:var(--heading);font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px;
+}
+.tk-text{font-size:14px;line-height:1.6;color:var(--text-light)}
+
+/* The Numbers */
+.tandem-numbers{
+  margin-top:100px;padding:60px;border-radius:20px;
+  background:linear-gradient(135deg,#1a1228 0%,#0f0a1a 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.tandem-numbers::before{
+  content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(232,168,124,0.08),transparent 70%);
+}
+.tandem-numbers::after{
+  content:'';position:absolute;bottom:-40%;left:-10%;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(123,104,168,0.1),transparent 70%);
+}
+.tandem-numbers-text{position:relative;z-index:1}
+.tandem-numbers-text h3{
+  font-family:var(--heading);font-size:clamp(28px,3vw,40px);font-weight:600;
+  color:var(--white);line-height:1.2;margin-bottom:16px;
+}
+.tandem-numbers-text p{font-size:16px;line-height:1.7;color:rgba(255,255,255,0.55)}
+.tandem-stats{
+  position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.tandem-stat{
+  padding:28px;border-radius:12px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(201,160,220,0.1);
+  text-align:center;
+}
+.tandem-stat-num{
+  font-family:var(--heading);font-size:42px;font-weight:700;
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.tandem-stat-label{
+  font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;
+  letter-spacing:1px;margin-top:4px;
+}
+
+/* Pricing */
+.tandem-pricing-section{margin-top:100px;text-align:center}
 .tandem-pricing{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:80px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;
 }
 .price-card{
-  padding:32px;border-radius:14px;background:var(--white);
+  padding:36px;border-radius:14px;background:var(--white);
   border:1.5px solid rgba(0,0,0,0.06);transition:all 0.4s var(--ease);
   text-align:center;position:relative;overflow:hidden;
 }
 .price-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
-.price-card.featured{border-color:var(--gold);background:var(--navy);color:var(--white)}
-.price-card.featured .price-name{color:var(--gold)}
+.price-card.featured{
+  border-color:var(--tandem-purple);
+  background:linear-gradient(135deg,#1a1228,#0f0a1a);color:var(--white);
+}
+.price-card.featured::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--tandem-rose),var(--tandem-purple),var(--tandem-purple-light));
+}
+.price-card.featured .price-name{
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
 .price-card.featured .price-amount{color:var(--white)}
 .price-card.featured .price-desc{color:rgba(255,255,255,0.5)}
-.price-card.featured .btn{background:var(--gold);color:var(--navy)}
+.price-card.featured .btn{
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));color:var(--white);
+}
 .price-pop{
   position:absolute;top:14px;right:14px;font-size:10px;font-weight:700;
-  background:var(--gold);color:var(--navy);padding:4px 10px;border-radius:20px;
+  background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple));
+  color:var(--white);padding:4px 10px;border-radius:20px;
   letter-spacing:0.5px;text-transform:uppercase;
 }
 .price-name{font-family:var(--heading);font-size:22px;font-weight:600;color:var(--navy);margin-bottom:8px}
@@ -288,6 +437,57 @@ section{padding:100px 60px;position:relative}
 .price-amount span{font-size:16px;font-weight:400;color:var(--text-muted)}
 .price-desc{font-size:13px;color:var(--text-muted);margin:8px 0 24px}
 .price-card .btn{width:100%;justify-content:center}
+
+/* Team Packs */
+.tandem-teams{
+  margin-top:48px;padding:40px;border-radius:16px;
+  background:var(--white);border:1px solid rgba(0,0,0,0.04);
+}
+.tandem-teams-title{
+  font-family:var(--heading);font-size:24px;font-weight:600;color:var(--navy);
+  text-align:center;margin-bottom:8px;
+}
+.tandem-teams-sub{font-size:14px;color:var(--text-muted);text-align:center;margin-bottom:28px}
+.team-packs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.team-pack{
+  padding:20px;border-radius:10px;text-align:center;
+  background:var(--cream);border:1px solid rgba(0,0,0,0.04);
+  transition:all 0.3s var(--ease);
+}
+.team-pack:hover{
+  transform:translateY(-3px);box-shadow:0 8px 24px rgba(123,104,168,0.1);
+  border-color:rgba(123,104,168,0.15);
+}
+.team-pack-seats{font-family:var(--heading);font-size:28px;font-weight:700;color:var(--navy)}
+.team-pack-price{font-size:14px;font-weight:600;color:var(--tandem-purple);margin:4px 0}
+.team-pack-save{
+  font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;
+  color:var(--tandem-rose);
+}
+
+/* Add-ons */
+.tandem-addons{
+  margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.tandem-addon{
+  padding:28px;border-radius:14px;background:var(--white);
+  border:1px solid rgba(0,0,0,0.04);transition:all 0.3s var(--ease);
+}
+.tandem-addon:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+.tandem-addon-title{
+  font-family:var(--heading);font-size:18px;font-weight:600;color:var(--navy);margin-bottom:6px;
+}
+.tandem-addon-price{
+  font-size:13px;font-weight:600;color:var(--tandem-purple);margin-bottom:8px;
+}
+.tandem-addon-text{font-size:13px;line-height:1.6;color:var(--text-light)}
+
+/* Built by */
+.tandem-credit{
+  margin-top:80px;text-align:center;
+  font-size:14px;color:var(--text-muted);line-height:1.7;
+}
+.tandem-credit strong{color:var(--navy)}
 
 /* ═══ CONTACT ═══ */
 #contact{background:var(--white)}
@@ -341,12 +541,16 @@ footer{
   .hero-content{padding:0 24px}
   .about-grid,.careers-grid,.tandem-hero,.contact-grid{grid-template-columns:1fr;gap:40px}
   .careers-cta-card{position:static}
-  .about-values,.tandem-pricing{grid-template-columns:1fr}
+  .about-values,.tandem-pricing,.tandem-features-grid,.tandem-how-grid{grid-template-columns:1fr}
   .about-stats{grid-template-columns:repeat(3,1fr);gap:12px}
   .form-row{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
   .hero h1{font-size:36px}
   footer{padding:40px 24px 20px}
+  .tandem-numbers{grid-template-columns:1fr;gap:40px;padding:40px 24px}
+  .tandem-stats{grid-template-columns:1fr 1fr}
+  .team-packs{grid-template-columns:1fr 1fr;gap:12px}
+  .tandem-addons{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -502,27 +706,29 @@ footer{
 <!-- ═══ TANDEM ═══ -->
 <section id="tandem">
   <div class="container">
+
+    <!-- Hero -->
     <div class="tandem-hero">
       <div>
-        <div class="tandem-badge reveal">⚡ Exclusive Technology</div>
-        <h2 class="tandem-title reveal">Meet<img src="tandem_white.png" alt="Tandem" style="height:1.3em;vertical-align:baseline;display:inline-block;position:relative;top:0.12em;margin-left:0.15em"></h2>
-        <p class="section-desc reveal">The AI-powered auto-dialer built exclusively for Tanguay Agency agents. Tandem handles the dialing so you can focus on what matters — connecting with clients and closing deals.</p>
+        <div class="tandem-badge reveal">⚡ Built for American Income Life Agents</div>
+        <h2 class="tandem-title reveal">Meet <span>Tandem</span></h2>
+        <p class="section-desc reveal">The purpose-built power dialing system that sits right on top of your Impact Portal. One tap and it starts burning through your lead list — dialing, detecting voicemails, logging results, and moving to the next lead without you lifting a finger. When a real person picks up, it unmutes your mic, plays a chime in your ear, and you're live.</p>
         <div class="tandem-features">
           <div class="tandem-feature reveal stagger-1">
             <div class="tandem-check">✓</div>
-            <div class="tandem-feature-text"><strong>Power Dialing</strong> — Automatically calls through your lead list while you focus on the conversation.</div>
+            <div class="tandem-feature-text"><strong>Power Dialing</strong> — Automatically calls through your lead list. No tab switching, no copy-pasting numbers, no clicking through screens to log a result.</div>
           </div>
           <div class="tandem-feature reveal stagger-2">
             <div class="tandem-check">✓</div>
-            <div class="tandem-feature-text"><strong>Voicemail Detection</strong> — AI detects voicemail and skips it instantly, saving you hours every week.</div>
+            <div class="tandem-feature-text"><strong>Smart AMD</strong> — Answering machine detection identifies humans vs voicemails in under 3 seconds. Voicemail? Logged and moving on. Human? You're connected.</div>
           </div>
           <div class="tandem-feature reveal stagger-3">
             <div class="tandem-check">✓</div>
-            <div class="tandem-feature-text"><strong>Smart Scheduling</strong> — Syncs with your appointments and skips clients who are already booked.</div>
+            <div class="tandem-feature-text"><strong>Schedule Sync</strong> — Tap the sync icon and Tandem pulls your appointments from Impact. Leads with booked appointments get skipped automatically.</div>
           </div>
           <div class="tandem-feature reveal stagger-4">
             <div class="tandem-check">✓</div>
-            <div class="tandem-feature-text"><strong>Built-in WebRTC</strong> — Make calls directly from your browser. No extra hardware or phone lines needed.</div>
+            <div class="tandem-feature-text"><strong>Double-Tap Mode</strong> — Calls the lead twice before moving on, roughly doubling your contact rate.</div>
           </div>
         </div>
       </div>
@@ -538,38 +744,186 @@ footer{
             ─────────────────────────<br>
             <span class="gr">●</span> Connected as <span class="hl">Agent Williams</span><br>
             <span class="gr">●</span> Plivo WebRTC: <span class="gr">Ready</span><br>
+            <span class="pp">●</span> AMD Engine: <span class="pp">Active</span><br>
             <br>
             Dialing <span class="hl">+1 (313) 555-0142</span>...<br>
-            <span class="gr">✓</span> AMD: Human detected<br>
+            <span class="gr">✓</span> AMD: Human detected — <span class="pp">2.1s</span><br>
+            <span class="gr">✓</span> Mic unmuted · Chime played<br>
             <span class="gr">✓</span> Call connected — <span class="hl">00:47</span><br>
             <br>
-            Today: <span class="hl">47</span> calls · <span class="gr">12</span> answered · <span style="color:#fbbf24">8</span> VM
+            Today: <span class="hl">147</span> calls · <span class="gr">38</span> answered · <span style="color:#fbbf24">92</span> VM
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tandem-pricing reveal">
-      <div class="price-card reveal stagger-1">
-        <div class="price-name">Bronze</div>
-        <div class="price-amount">$350<span>/mo</span></div>
-        <div class="price-desc">200 calls per day</div>
-        <a href="#contact" class="btn btn-navy">Get Started</a>
-      </div>
-      <div class="price-card featured reveal stagger-2">
-        <div class="price-pop">Most Popular</div>
-        <div class="price-name">Silver</div>
-        <div class="price-amount">$550<span style="color:rgba(255,255,255,0.4)">/mo</span></div>
-        <div class="price-desc">300 calls per day</div>
-        <a href="#contact" class="btn btn-gold">Get Started</a>
-      </div>
-      <div class="price-card reveal stagger-3">
-        <div class="price-name">Gold</div>
-        <div class="price-amount">$750<span>/mo</span></div>
-        <div class="price-desc">Unlimited calls per day</div>
-        <a href="#contact" class="btn btn-navy">Get Started</a>
+    <!-- How It Works -->
+    <div class="tandem-how">
+      <div class="tandem-section-label reveal">How It Works</div>
+      <h3 class="section-title reveal" style="text-align:center">From Button Press<br>to Ringing Phone</h3>
+      <p class="section-desc reveal" style="text-align:center;margin:0 auto">Tandem scrapes your lead info directly from Impact — name, phone number, lead position — and places the call through Plivo's voice network using your own dedicated local number.</p>
+
+      <div class="tandem-how-grid">
+        <div class="tandem-how-card reveal stagger-1">
+          <div class="tandem-how-num">01</div>
+          <div class="tandem-how-title">Scrape & Dial</div>
+          <div class="tandem-how-text">The extension reads your lead list directly from Impact Portal and starts dialing. No exports, no imports, no manual entry.</div>
+        </div>
+        <div class="tandem-how-card reveal stagger-2">
+          <div class="tandem-how-num">02</div>
+          <div class="tandem-how-title">Detect & Route</div>
+          <div class="tandem-how-text">Machine detection runs in the background. Voicemail? Tandem hangs up, logs "No Answer," and moves to the next lead. Human? You're connected instantly.</div>
+        </div>
+        <div class="tandem-how-card reveal stagger-3">
+          <div class="tandem-how-num">03</div>
+          <div class="tandem-how-title">Talk & Close</div>
+          <div class="tandem-how-text">When a human picks up, your mic unmutes and a chime plays in your ear. You're live on the call — ready to sell, book, or follow up.</div>
+        </div>
       </div>
     </div>
+
+    <!-- Key Features -->
+    <div class="tandem-key-features">
+      <div class="tandem-section-label reveal">Key Features</div>
+      <h3 class="section-title reveal">Everything You Need.<br>Nothing You Don't.</h3>
+      <div class="tandem-features-grid">
+        <div class="tk-card reveal stagger-1">
+          <div class="tk-icon">🎯</div>
+          <div class="tk-title">Smart Dialing</div>
+          <div class="tk-text">AMD identifies humans vs voicemails in under 3 seconds. Human? Connected. Voicemail? Logged and moving on. No wasted time.</div>
+        </div>
+        <div class="tk-card reveal stagger-2">
+          <div class="tk-icon">📅</div>
+          <div class="tk-title">Schedule Sync</div>
+          <div class="tk-text">Pulls your appointments from Impact. Leads with booked appointments get skipped automatically — you'll never cold-call someone you're already meeting.</div>
+        </div>
+        <div class="tk-card reveal stagger-3">
+          <div class="tk-icon">🔄</div>
+          <div class="tk-title">Number Rotation</div>
+          <div class="tk-text">Every night at 2am, every agent's caller ID swaps to a fresh local number in their preferred area code. No more spam flags, no more blocked numbers.</div>
+        </div>
+        <div class="tk-card reveal stagger-4">
+          <div class="tk-icon">🎨</div>
+          <div class="tk-title">Custom Call States</div>
+          <div class="tk-text">The center button morphs through play → answer → hangup → resume with branded 3D icons. You always know exactly what state you're in.</div>
+        </div>
+        <div class="tk-card reveal stagger-5">
+          <div class="tk-icon">👥</div>
+          <div class="tk-title">Team Management</div>
+          <div class="tk-text">Team leaders see their members' live stats. Admins manage all users, plans, and provisioning from a single dashboard.</div>
+        </div>
+        <div class="tk-card reveal stagger-6">
+          <div class="tk-icon">⚡</div>
+          <div class="tk-title">Instant Provisioning</div>
+          <div class="tk-text">Self-signup with Stripe billing. Payment goes through, Plivo number gets bought, endpoint gets created — agent is dialing within 60 seconds.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Numbers -->
+    <div class="tandem-numbers reveal">
+      <div class="tandem-numbers-text">
+        <div class="tandem-section-label" style="background:linear-gradient(135deg,var(--tandem-rose),var(--tandem-purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent">The Numbers</div>
+        <h3>More Dials. More Conversations.<br>More Sales.</h3>
+        <p>An agent manually dialing through Impact makes maybe 30–40 calls in a day. With Tandem running, that same agent hits 200+ calls before lunch. More dials means more conversations, more conversations means more sits, more sits means more sales. The math is simple.</p>
+      </div>
+      <div class="tandem-stats">
+        <div class="tandem-stat">
+          <div class="tandem-stat-num">30–40</div>
+          <div class="tandem-stat-label">Manual Calls / Day</div>
+        </div>
+        <div class="tandem-stat">
+          <div class="tandem-stat-num">200+</div>
+          <div class="tandem-stat-label">Tandem Calls / Day</div>
+        </div>
+        <div class="tandem-stat">
+          <div class="tandem-stat-num">&lt;3s</div>
+          <div class="tandem-stat-label">AMD Detection</div>
+        </div>
+        <div class="tandem-stat">
+          <div class="tandem-stat-num">60s</div>
+          <div class="tandem-stat-label">Signup to Dialing</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="tandem-pricing-section">
+      <div class="tandem-section-label reveal">Pricing</div>
+      <h3 class="section-title reveal" style="text-align:center">Simple Plans.<br>Serious Results.</h3>
+      <p class="section-desc reveal" style="text-align:center;margin:0 auto">Stripe billing with instant account provisioning. Pick your plan, pay, and start dialing.</p>
+
+      <div class="tandem-pricing">
+        <div class="price-card reveal stagger-1">
+          <div class="price-name">Bronze</div>
+          <div class="price-amount">$350<span>/mo</span></div>
+          <div class="price-desc">200 calls per day</div>
+          <a href="#contact" class="btn btn-navy">Get Started</a>
+        </div>
+        <div class="price-card featured reveal stagger-2">
+          <div class="price-pop">Most Popular</div>
+          <div class="price-name">Silver</div>
+          <div class="price-amount">$550<span style="color:rgba(255,255,255,0.4)">/mo</span></div>
+          <div class="price-desc">400 calls per day</div>
+          <a href="#contact" class="btn">Get Started</a>
+        </div>
+        <div class="price-card reveal stagger-3">
+          <div class="price-name">Gold</div>
+          <div class="price-amount">$750<span>/mo</span></div>
+          <div class="price-desc">Unlimited calls per day</div>
+          <a href="#contact" class="btn btn-navy">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Team Packs -->
+      <div class="tandem-teams reveal">
+        <div class="tandem-teams-title">Team Unlimited Packs</div>
+        <div class="tandem-teams-sub">Bulk unlimited seats for agencies and teams — the more you add, the more you save.</div>
+        <div class="team-packs">
+          <div class="team-pack">
+            <div class="team-pack-seats">5</div>
+            <div class="team-pack-price">$3,500/mo</div>
+            <div class="team-pack-save">Save $250</div>
+          </div>
+          <div class="team-pack">
+            <div class="team-pack-seats">10</div>
+            <div class="team-pack-price">$7,000/mo</div>
+            <div class="team-pack-save">Save $500</div>
+          </div>
+          <div class="team-pack">
+            <div class="team-pack-seats">15</div>
+            <div class="team-pack-price">$10,500/mo</div>
+            <div class="team-pack-save">Save $750</div>
+          </div>
+          <div class="team-pack">
+            <div class="team-pack-seats">20</div>
+            <div class="team-pack-price">$14,000/mo</div>
+            <div class="team-pack-save">Save $1,000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="tandem-addons">
+        <div class="tandem-addon reveal stagger-1">
+          <div class="tandem-addon-title">📱 Schedule Management Add-on</div>
+          <div class="tandem-addon-price">Available with any plan</div>
+          <div class="tandem-addon-text">Daily 9am text to agents with their schedule, 1-hour client reminders via SMS, and inbound reply forwarding — all from a dedicated toll-free number.</div>
+        </div>
+        <div class="tandem-addon reveal stagger-2">
+          <div class="tandem-addon-title">🔧 Additional Services</div>
+          <div class="tandem-addon-price">Onboarding $25/user · $100/group</div>
+          <div class="tandem-addon-text">Number changes $15 each. Local presence add-on $50/state (coming soon) — show a local caller ID in every state you dial.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credit -->
+    <div class="tandem-credit reveal">
+      Built by <strong>Landon Williams</strong> for the Tanguay Agency.<br>
+      Designed for agents who'd rather be talking to people than clicking buttons.
+    </div>
+
   </div>
 </section>
 
